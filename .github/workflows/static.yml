@@ -1,0 +1,95 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>M.MARDENI</title>
+    </head>
+    <body>
+        <head>
+            this is a personal site, i share in it my skills and intrests.
+            <nav>ELECTRICAL AND ELECTRONIC ENGINEER.</nav>
+        </head>
+        <h1>academic history</h1>
+            <section>
+                <article>98.5% high school &quot tawjihi &quot score.</article>
+                <article>3.88 GPA on third year.</article>
+            </section>
+        <h1>courses taken</h1>
+            <section>
+                <article>CCNA--CISCO CERTIFICATE NETWORKING ADMINSTRATOR.</article>
+                <article>aruino and embedded systems</article>
+                <article>programming</article>
+            </section>
+        <h1>work experience</h1>
+            <section>
+                <ul>
+                    <li>waiter</li>
+                        <ul>
+                            <li>communication skills </li>
+                            <li>fast reactions</li>
+                        </ul>
+                    <li>IEEE content wirter</li>
+                        <ul>
+                            <li>graphic design</li>
+                            <li>researcher</li>
+                        </ul>
+                    <li>acedemic team &lt zenon &gt</li>
+                </ul>
+            </section>
+        <h1>next term courses</h1>
+            <ol>
+                <li>comuunnications 2</li>
+                <li>electromagnetisim 2</li>
+                <li>medical electronics</li>
+                <li>economics</li>
+                <li>numerical</li>
+                <li>communications lab</li>
+            </ol>
+        <div>...</div>
+        <div>...</div>
+        <div>...</div>
+        <footer>copyrights &copy reserved 2023</footer>
+    </body>
+</html>
